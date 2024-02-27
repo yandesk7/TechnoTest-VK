@@ -28,12 +28,19 @@
 ## 📝 Запрос SQL
 
 SELECT products.product_name,
+
        SUM (quantity),
+
        orders.product_id
+
   FROM orders
+
   JOIN products ON orders.product_id = products.product_id
+
 GROUP BY orders.product_id
+
 order BY SUM (quantity) DESC
+
 LIMIT 1
 
 
@@ -44,6 +51,8 @@ LIMIT 1
 ## 📝 Запрос SQL
 
 SELECT ROUND(SUM(price * quantity),  1)  AS total_revenue
+
   FROM orders
+
   JOIN products ON orders.product_id = products.product_id;
 
